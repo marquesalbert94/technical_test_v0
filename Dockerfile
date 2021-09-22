@@ -1,6 +1,6 @@
 FROM ruby:3.0.2
 MAINTAINER Albert Marquès Triay
-RUN apk add --update --virtual
+RUN apk add --update --virtual\
     runtime-deps \
     sqlite \
     git \
