@@ -2,8 +2,7 @@ FROM ruby:3.0.2
 MAINTAINER Albert Marquès Triay
 RUN apk update \
     && apk add sqlite \
-    && apk add yarn \
-    && apk add git
+    && apk add yarn
 
 WORKDIR /app
 COPY package.json ./
