@@ -6,6 +6,7 @@ RUN apk add --update --virtual \
     yarn
 WORKDIR /app
 COPY package.json ./
+
 RUN npm install
 RUN bundle install
 RUN bundle exec rake webpacker:install
