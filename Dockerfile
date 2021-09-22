@@ -1,7 +1,6 @@
 FROM ruby:3.0.2
 MAINTAINER Albert Marquès Triay
-RUN apk add --update --virtual\
-    runtime-deps \
+RUN apk add --update --virtual \
     sqlite \
     git \
     yarn \
