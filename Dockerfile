@@ -1,15 +1,17 @@
 FROM ruby:3.0.2
 MAINTAINER Albert Marquès Triay
 
-RUN apt-get -y update -qq && apt-get install -y yarn
+RUN apt-get -y update -qq && apt-get install -y sqlite3 libsqlite3-dev yarn
+
+RUN mkdir /app
 
 WORKDIR /app
-COPY package.json ./
+COPY Gemfile* package.json yarn.lock /app/
 
 RUN npm install
 RUN bundle install
 RUN bundle exec rake webpacker:install
 RUN bundle exec rake webpacker:install:react
 RUN yarn add antd react-router-dom
-COPY . .
+COPY . /app
 CMD [ "npm", "start" ]
