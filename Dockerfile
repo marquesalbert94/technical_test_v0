@@ -1,7 +1,7 @@
 FROM ruby:3.0.2
 MAINTAINER Albert Marquès Triay
 
-RUN apt-get -y update -qq && apt-get install -y sqlite yarn
+RUN apt-get -y update -qq && apt-get install -y yarn
 
 WORKDIR /app
 COPY package.json ./
