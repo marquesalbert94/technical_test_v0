@@ -3,7 +3,7 @@ MAINTAINER Albert Marquès Triay
 RUN apk add --update --virtual \
     sqlite \
     git \
-    yarn \
+    yarn
 WORKDIR /app
 COPY package.json ./
 RUN npm install
