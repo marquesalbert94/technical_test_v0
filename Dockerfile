@@ -9,8 +9,7 @@ WORKDIR /app
 COPY Gemfile* package.json yarn.lock /app/
 
 RUN bundle install
-RUN bundle exec rake webpacker:install
-RUN bundle exec rake webpacker:install:react
+
 RUN yarn add antd react-router-dom
 COPY . /app
 CMD [ "npm", "start" ]
