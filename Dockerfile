@@ -1,7 +1,6 @@
 FROM ruby:3.0.2
 MAINTAINER Albert Marquès Triay
-RUN apt-get install sqlite
-RUN apt-get install yarn
+RUN apt-get update -qq && apt-get install -y sqlite yarn
 
 WORKDIR /app
 COPY package.json ./
