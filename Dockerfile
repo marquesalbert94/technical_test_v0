@@ -8,7 +8,6 @@ RUN mkdir /app
 WORKDIR /app
 COPY Gemfile* package.json yarn.lock /app/
 
-RUN npm install
 RUN bundle install
 RUN bundle exec rake webpacker:install
 RUN bundle exec rake webpacker:install:react
