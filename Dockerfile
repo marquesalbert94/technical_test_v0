@@ -1,9 +1,7 @@
 FROM ruby:3.0.2
 MAINTAINER Albert Marquès Triay
-RUN printf "deb [trusted=yes] http://archive.debian.org/debian/ jessie main\ndeb-src http://archive.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/updates main\ndeb-src http://security.debian.org jessie/updates main" > /etc/apt/sources.list
 
-
-RUN apt-get update -qq && apt-get install -y sqlite yarn
+RUN apt-get -y update -qq && apt-get install -y sqlite yarn
 
 WORKDIR /app
 COPY package.json ./
