@@ -12,4 +12,4 @@ RUN bundle exec rake webpacker:install
 RUN bundle exec rake webpacker:install:react
 RUN yarn add antd react-router-dom
 COPY . .
-CMD ["npm", "start"]
+CMD [ "npm", "start" ]
