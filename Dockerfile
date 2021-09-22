@@ -10,6 +10,5 @@ COPY Gemfile* package.json yarn.lock /app/
 
 RUN bundle install
 
-RUN yarn add antd react-router-dom
 COPY . /app
 CMD [ "npm", "start" ]
