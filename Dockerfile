@@ -11,4 +11,6 @@ COPY Gemfile* package.json yarn.lock /app/
 RUN bundle install
 
 COPY . /app
+
+EXPOSE 3000
 CMD [ "npm", "start" ]
