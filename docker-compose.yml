@@ -20,7 +20,7 @@ services:
 
   webpacker:
     build: .
-    command: ./bin/webpack-dev-server
+    command: bundle exec /bin/webpack-dev-server
     env_file:
       - 'app.env'
     volumes:
