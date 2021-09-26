@@ -4,6 +4,11 @@ volumes:
   bundle:
   db:
 
+networks:
+  pnet:
+    driver: bridge
+
+
 services:
   db:
     image: nouchka/sqlite3:latest
@@ -13,7 +18,7 @@ services:
     tty: true
   webpacker:
     build: .
-    command: bundle exec bin/webpack-dev-server
+    command: bundle exec bin/webpack-dev-server #./bin/webpack-dev-server
     networks:
       - pnet
     volumes:
@@ -21,6 +26,7 @@ services:
     working_dir: /webpacker-app
     ports:
       - '3035:3035'
+
   web: &rails
     build:
       context: .
