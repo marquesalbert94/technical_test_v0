@@ -8,11 +8,12 @@ RUN mkdir /app
 WORKDIR /app
 COPY Gemfile* package.json yarn.lock /app/
 
-RUN bundle install
-RUN bundle exec rails webpacker:install
-RUN bundle exec rails webpacker:install:react
+
 
 COPY . /app
 
+RUN bundle install
+RUN bundle exec rails webpacker:install
+RUN bundle exec rails webpacker:install:react
 EXPOSE 3000
 CMD [ "npm", "start" ]
