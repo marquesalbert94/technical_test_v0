@@ -11,7 +11,15 @@ services:
       - db:/root/db
     stdin_open: true
     tty: true
-
+  webpacker:
+    build: .
+    env_file:
+      - 'app.env'
+    command: bundle exec webpack-dev-server
+    volumes:
+      - .:/webpacker-service
+    ports:
+      - '3035:3035'
   web: &rails
     build:
       context: .
