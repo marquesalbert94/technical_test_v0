@@ -9,6 +9,7 @@ WORKDIR /app
 COPY Gemfile* package.json yarn.lock /app/
 
 RUN bundle install
+bundle exec rails webpacker:install
 
 COPY . /app
 
