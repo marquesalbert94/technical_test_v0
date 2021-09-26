@@ -49,4 +49,4 @@ services:
     environment:
           - NODE_ENV=development
           - RAILS_ENV=development
-          - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
+          - WEBPACKER_DEV_SERVER_HOST=webpacker
