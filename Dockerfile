@@ -10,6 +10,7 @@ COPY Gemfile* package.json yarn.lock /app/
 
 RUN bundle install
 RUN bundle exec rails webpacker:install
+RUN bundle exec rails webpacker:install:react
 
 COPY . /app
 
