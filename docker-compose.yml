@@ -20,7 +20,7 @@ services:
 
   webpacker:
     build: .
-    env_file: app.env
+    env_file: 'app.env'
     command: bundle exec /bin/webpack-dev-server
     networks:
       - pnet
@@ -44,7 +44,7 @@ services:
       - db
       - webpacker
 
-    env_file: app.env
+    env_file: 'app.env'
     tty: true
     stdin_open: true
     ports:
