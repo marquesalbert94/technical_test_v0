@@ -20,15 +20,13 @@ services:
 
   webpacker:
     build: .
-    env_file: 'app.env'
-    command: bundle exec webpack-dev-server
-    networks:
-      - pnet
+    command: ./bin/webpack-dev-server
+    env_file:
+      - 'app.env'
     volumes:
-      - .:/webpacker-app
-    working_dir: /webpacker-app
+      - .:/app
     ports:
-      - '3035:3035'
+      - 3035:3035
 
   web: &rails
     build:
@@ -44,7 +42,8 @@ services:
       - db
       - webpacker
 
-    env_file: 'app.env'
+    env_file:
+      - 'app.env'
     tty: true
     stdin_open: true
     ports:
