@@ -15,5 +15,6 @@ COPY . /app
 RUN bundle install
 RUN bundle exec rails webpacker:install
 RUN bundle exec rails webpacker:install:react
+RUN bundle exec rails webpacker:compile
 EXPOSE 3000
 CMD [ "npm", "start" ]
