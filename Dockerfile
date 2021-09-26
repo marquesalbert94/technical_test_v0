@@ -8,7 +8,8 @@ RUN mkdir /app
 WORKDIR /app
 COPY Gemfile* package.json yarn.lock /app/
 
-
+ADD Gemfile /app/
+ADD Gemfile.lock /app/
 RUN bundle install
 
 COPY . /app
