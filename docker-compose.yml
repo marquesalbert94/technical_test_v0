@@ -16,9 +16,11 @@ services:
       - db:/root/db
     stdin_open: true
     tty: true
+
+
   webpacker:
     build: .
-    command: bundle exec bin/webpack-dev-server #./bin/webpack-dev-server
+    command: bundle exec ./bin/webpack-dev-server
     networks:
       - pnet
     volumes:
