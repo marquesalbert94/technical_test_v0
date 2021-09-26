@@ -14,6 +14,5 @@ COPY . /app
 
 RUN bundle install
 RUN yarn install
-RUN bundle exec rails webpacker:compile
 EXPOSE 3000
 CMD [ "npm", "start" ]
