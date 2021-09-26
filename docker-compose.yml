@@ -13,11 +13,12 @@ services:
     tty: true
   webpacker:
     build: .
-    env_file:
-      - 'app.env'
-    command: bundle exec webpack-dev-server
+    command: bundle exec bin/webpack-dev-server
+    networks:
+      - pnet
     volumes:
-      - .:/webpacker-service
+      - .:/webpacker-app
+    working_dir: /webpacker-app
     ports:
       - '3035:3035'
   web: &rails
@@ -32,8 +33,14 @@ services:
     tmpfs: /app/tmp
     depends_on:
       - db
+      - webpacker
+
     env_file: app.env
     tty: true
     stdin_open: true
     ports:
       - "3000:3000"
+    environment:
+          - NODE_ENV=development
+          - RAILS_ENV=development
+          - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
