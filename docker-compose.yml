@@ -3,11 +3,12 @@ version: '3'
 volumes:
   bundle:
   db:
+  webpacker:
 
 
 services:
   db:
-    image: nouchka/sqlite3:latest
+    image: technical_test_v0_db_1
     volumes:
       - db:/root/db
     stdin_open: true
@@ -15,6 +16,7 @@ services:
 
 
   webpacker:
+    image: technical_test_v0_webpacker_1
     build: .
     command: bundle exec /bin/webpack-dev-server
     env_file:
@@ -25,6 +27,7 @@ services:
       - 3035:3035
 
   web: &rails
+    image: technical_test_v0_web_1
     build:
       context: .
       dockerfile: Dockerfile
