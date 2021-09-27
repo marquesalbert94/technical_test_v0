@@ -3,11 +3,11 @@ version: '3'
 volumes:
   bundle:
   db:
-  webpacker:
 
 
 services:
   db:
+    image: nouchka/sqlite3:latest
     volumes:
       - db:/root/db
     stdin_open: true
