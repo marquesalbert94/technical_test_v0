@@ -16,7 +16,7 @@ services:
 
   webpacker:
     build: .
-    command: bundle exec /bin/webpack-dev-server
+    command: bundle exec rails /bin/webpack-dev-server
     env_file:
       - 'app.env'
     volumes:
