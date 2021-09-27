@@ -4,10 +4,6 @@ volumes:
   bundle:
   db:
 
-networks:
-  pnet:
-    driver: bridge
-
 
 services:
   db:
