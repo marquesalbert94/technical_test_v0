@@ -16,11 +16,11 @@ services:
 
   webpacker:
     build: .
-    command: bundle exec rails /bin/webpack-dev-server
+    command: bundle exec /bin/webpack-dev-server
     env_file:
       - 'app.env'
     volumes:
-      - .:/app
+      - .:/web
     ports:
       - 3035:3035
 
@@ -30,10 +30,10 @@ services:
       dockerfile: Dockerfile
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -b '0.0.0.0'"
     volumes:
-      - .:/app
+      - .:/web
       - bundle:/usr/local/bundle
-      - ./node_modules:/app/node_modules
-    tmpfs: /app/tmp
+      - ./node_modules:/web/node_modules
+    tmpfs: /web/tmp
     depends_on:
       - db
       - webpacker
