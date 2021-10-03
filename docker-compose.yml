@@ -28,7 +28,6 @@ services:
     tmpfs: /app/tmp
     depends_on:
       - db
-      - webpacker
 
     env_file:
       - 'app.env'
@@ -39,14 +38,3 @@ services:
     environment:
           - NODE_ENV=development
           - RAILS_ENV=development
-          - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
-
-  webpacker:
-    build: .
-    command: bundle exec /bin/webpack-dev-server
-    env_file:
-      - 'app.env'
-    volumes:
-      - .:/web
-    ports:
-      - 3035:3035
